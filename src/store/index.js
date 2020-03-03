@@ -26,7 +26,7 @@ export default new Vuex.Store({
     readLatestLog({ commit }) {
       commit("log", "Fetching latest server logs!!");
       axios
-        .get("http://" + process.env.VUE_APP_API_SERVER + "/initial")
+        .get(process.env.VUE_APP_API_SERVER + "/initial")
         .then(({ data: { logs } }) => {
           logs
             .filter(log => log.trim() !== "")
@@ -35,26 +35,22 @@ export default new Vuex.Store({
     },
     fetchServerData({ commit }) {
       axios
-        .get("http://" + process.env.VUE_APP_API_SERVER + "/status")
+        .get(process.env.VUE_APP_API_SERVER + "/status")
         .then(({ data: { status } }) => {
           commit("setRunning", status);
         });
     },
     stopServer({ commit }) {
       commit("setRunning", null);
-      axios
-        .delete("http://" + process.env.VUE_APP_API_SERVER + "/stop")
-        .then(() => {
-          commit("log", "Server pinged, waiting for response");
-        });
+      axios.delete(process.env.VUE_APP_API_SERVER + "/stop").then(() => {
+        commit("log", "Server pinged, waiting for response");
+      });
     },
     startServer({ commit }) {
       commit("setRunning", null);
-      axios
-        .post("http://" + process.env.VUE_APP_API_SERVER + "/start")
-        .then(() => {
-          commit("log", "Server pinged, waiting for response");
-        });
+      axios.post(process.env.VUE_APP_API_SERVER + "/start").then(() => {
+        commit("log", "Server pinged, waiting for response");
+      });
     }
   }
 });
