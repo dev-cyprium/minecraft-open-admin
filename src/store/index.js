@@ -13,12 +13,26 @@ export default new Vuex.Store({
   mutations: {
     log(state, item) {
       state.serverLog.push(item);
+
+      if (state.serverLog.length > 60) {
+        state.serverLog.shift();
+      }
     },
     setRunning(state, status) {
       state.serverRunning = status;
     }
   },
   actions: {
+    readLatestLog({ commit }) {
+      commit("log", "Fetching latest server logs!!");
+      axios
+        .get("http://" + process.env.VUE_APP_API_SERVER + "/initial")
+        .then(({ data: { logs } }) => {
+          logs
+            .filter(log => log.trim() !== "")
+            .forEach(log => commit("log", log));
+        });
+    },
     fetchServerData({ commit }) {
       axios
         .get("http://" + process.env.VUE_APP_API_SERVER + "/status")

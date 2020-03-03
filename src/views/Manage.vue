@@ -8,7 +8,9 @@
               class="command-input"
               label="Execute command"
               outlined
+              disabled
             />
+            <p>*This feature is comming soon!</p>
           </Panel>
         </v-col>
         <v-col>
@@ -34,7 +36,7 @@
       </v-row>
       <v-row>
         <v-col>
-          <Panel class="server-log fill" title="Server Log">
+          <Panel scrollable="true" class="server-log fill" title="Server Log">
             <Console />
           </Panel>
         </v-col>

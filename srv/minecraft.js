@@ -1,10 +1,19 @@
 import { spawn } from "child_process";
+import readlastlines from "read-last-lines";
+
 let minecraftProcess = null;
 let shutDown = false;
 const clients = [];
 
+const mcPath = process.env.MINECRAFT_SERVER_PATH;
+const scriptName = process.env.SCRIPT_NAME;
+
 const addClient = client => {
   clients.push(client);
+};
+
+const initialLogs = async n => {
+  return readlastlines.read(mcPath + "/logs/latest.log", n);
 };
 
 const start = io => {
@@ -12,10 +21,9 @@ const start = io => {
     return;
   }
 
-  const minecraftStartScript =
-    "/Users/stefankupresak/projects/httpstef/minecraft-admin/mc/StartServer.sh";
+  const minecraftStartScript = mcPath + "/" + scriptName;
   const mcProcess = spawn(minecraftStartScript, {
-    cwd: "/Users/stefankupresak/projects/httpstef/minecraft-admin/mc/"
+    cwd: mcPath + "/"
   });
   minecraftProcess = mcProcess;
 
@@ -60,4 +68,4 @@ const status = () => {
   return minecraftProcess !== null;
 };
 
-export default { start, stop, kill, status, addClient };
+export default { start, stop, kill, status, addClient, initialLogs };

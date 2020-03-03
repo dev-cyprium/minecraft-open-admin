@@ -3317,8 +3317,8 @@ dotenv-expand@^5.1.0:
 
 dotenv@^8.2.0:
   version "8.2.0"
-  resolved "https://registry.npm.taobao.org/dotenv/download/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
-  integrity sha1-l+YZJZradQ7qPk6j4mvO6lQksWo=
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
 
 duplexer3@^0.1.4:
   version "0.1.4"
@@ -6037,7 +6037,7 @@ mute-stream@0.0.8, mute-stream@~0.0.4:
   resolved "https://registry.npm.taobao.org/mute-stream/download/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha1-FjDEKyJR/4HiooPelqVJfqkuXg0=
 
-mz@^2.4.0:
+mz@^2.4.0, mz@^2.7.0:
   version "2.7.0"
   resolved "https://registry.npm.taobao.org/mz/download/mz-2.7.0.tgz#95008057a56cafadc2bc63dde7f9ff6955948e32"
   integrity sha1-lQCAV6Vsr63CvGPd5/n/aVWUjjI=
@@ -7482,6 +7482,13 @@ rc@^1.0.1, rc@^1.1.6:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+read-last-lines@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/read-last-lines/-/read-last-lines-1.7.2.tgz#d96d40566d70aca260a85acefb00d523ea3e74ad"
+  integrity sha512-K0yUvTYAYn6qpyLJufaJ7yC6BeL23qpgZ8SKM7/fA1R1rHotCDxB/zDp9i1I2JHvexWBW6/35jkt07iiIKKp4g==
+  dependencies:
+    mz "^2.7.0"
 
 read-pkg@^5.1.1:
   version "5.2.0"
