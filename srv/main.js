@@ -3,6 +3,7 @@ import minecraft from "./minecraft";
 import { Server } from "http";
 import socketio from "socket.io";
 import cors from "cors";
+import history from "connect-history-api-fallback";
 
 const app = express();
 const server = Server(app);
