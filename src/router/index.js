@@ -14,7 +14,7 @@ const routes = [
     path: "/server-manage",
     name: "About",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      import(/* webpackChunkName: "about" */ "../views/Manage.vue")
   }
 ];
 
