@@ -14,8 +14,8 @@ app.use(cors());
 //   minecraft.addClient(socket);
 // });
 
-app.use(express.static("dist"));
 app.use(history());
+app.use(express.static("dist"));
 
 app.post("/start", (_, res) => {
   minecraft.start(io);
