@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.6.4",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
