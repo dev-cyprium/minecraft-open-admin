@@ -54,6 +54,13 @@ const start = io => {
   });
 };
 
+const sendMessage = message => {
+  console.log("Is mc process null: ", minecraftProcess === null);
+  if (minecraftProcess) {
+    minecraftProcess.stdin.write(message);
+  }
+};
+
 const stop = () => {
   if (!minecraftProcess) return;
   shutDown = true;
@@ -68,4 +75,12 @@ const status = () => {
   return minecraftProcess !== null;
 };
 
-export default { start, stop, kill, status, addClient, initialLogs };
+export default {
+  start,
+  stop,
+  kill,
+  status,
+  addClient,
+  initialLogs,
+  sendMessage
+};

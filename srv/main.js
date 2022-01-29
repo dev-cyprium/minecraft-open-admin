@@ -4,6 +4,7 @@ import { Server } from "http";
 import socketio from "socket.io";
 import cors from "cors";
 import history from "connect-history-api-fallback";
+import bodyParser from "body-parser";
 
 const app = express();
 const server = Server(app);
@@ -16,6 +17,7 @@ app.use(cors());
 
 app.use(history());
 app.use(express.static("dist"));
+app.use(bodyParser.json());
 
 app.post("/start", (_, res) => {
   minecraft.start(io);
@@ -37,6 +39,12 @@ app.delete("/stop", (req, res) => {
 app.get("/initial", async (_, res) => {
   res.status(200);
   res.send({ logs: (await minecraft.initialLogs(25)).split("\n") });
+});
+
+app.post("/message", (req, res) => {
+  minecraft.sendMessage(req.body.message);
+  res.status(200);
+  res.send({ message: "OK" });
 });
 
 app.delete("/kill", (req, res) => {});

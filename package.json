@@ -5,13 +5,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:api": "NODE_OPTIONS='-r esm' jest srv/",
+    "test:api": "NODE_ENV=test NODE_OPTIONS='-r esm' jest srv/",
     "lint": "vue-cli-service lint",
     "api": "nodemon -r esm srv/index.js",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
     "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.6.4",
     "cors": "^2.8.5",
@@ -52,6 +53,9 @@
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
       "/node_modules/"
+    ],
+    "setupFiles": [
+      "./tests/testSetup"
     ],
     "preset": "@vue/cli-plugin-unit-jest"
   }

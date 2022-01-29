@@ -1,0 +1,1 @@
+while [ true ]; do sleep 5; echo "I'm running a minecraft server!"; done
